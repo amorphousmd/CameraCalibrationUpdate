@@ -9,6 +9,9 @@ centerPointP = mm_to_pixels_transformation_mtx @ centerPointW
 translationVector = [[-centerPointP[0]],
                      [-centerPointP[1]],
                      [0]]
+translationVector = [[0],
+                     [0],
+                     [0]]
 left = np.array([[0, 0],
                  [0, 0],
                  [0, 0]])
