@@ -98,12 +98,3 @@ def getTransformationMatrix(imagePath):
     mm_to_pixels_transformation_mtx = np.linalg.inv(pixels_to_mm_transformation_mtx)
 
     return mm_to_pixels_transformation_mtx
-
-
-# mm_to_pixels_transformation_mtx = getTransformationMatrix('Images/3.png')
-# test_XY_2 = (88, 66, 1)  # Nhap toa do test
-# test_xy_2 = mm_to_pixels_transformation_mtx @ test_XY_2
-# image = cv.imread('caliResult1.png')
-# annotated_img = copy.deepcopy(image)
-# draw_crosshair(annotated_img, (round(test_xy_2[0]), round(test_xy_2[1])), 60, (0, 0, 255))
-# cv.imwrite("./outputs/annotatedFull.png", annotated_img)

@@ -1,13 +1,14 @@
-import numpy as np
-
-# Returns the world coordinates
+# convertPixelToWorld.py
+# Returns the world coordinates from pixel
 # Input: Tuple. Example (x, y)
 # Output: Tuple. Example (X, Y)
+import numpy as np
+
+pixelToWorldMatrix = np.load('calibSaves/PtWMatrix.npy')  # Load transformation matrix from file
 
 
 def convertPixelToWorld(planeMatrix):
     planeMatrix = (*planeMatrix, 1)  # Append a 1 to tuple
-    pixelToWorldMatrix = np.load('calibSaves/TMatrix.npy')  # Load transformation matrix from file
     # print(pixelToWorldMatrix)  # Print T matrix, can uncomment this
     try:
         worldMatrix = pixelToWorldMatrix @ planeMatrix  # Calculate world matrix
@@ -16,12 +17,3 @@ def convertPixelToWorld(planeMatrix):
     else:
         output = (worldMatrix[0], worldMatrix[1])  # Remove the 1 in matrix
         return output
-
-# Example Testing Section
-
-
-planeMatrixTest1 = (300, 400)
-print(convertPixelToWorld(planeMatrixTest1))
-
-# planeMatrixTest1 = (303, 220, 1)
-# print(convertPixelToWorld(planeMatrixTest1))
